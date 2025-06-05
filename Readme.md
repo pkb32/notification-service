@@ -119,7 +119,7 @@ Retrieve all notifications for a user, sorted by timestamp (newest first).
 ### GET `/notifications/jobs`
 
 (Optional) List all jobs in the queue with their status
-* Example: `https://xyz.com/users/PKB/notifications/jobs`
+* Example: `https://xyz.com/notifications/jobs`
 
 **Response example:**
 
