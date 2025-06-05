@@ -1,8 +1,4 @@
-Absolutely! Here’s a visually enhanced and clean **README.md** with sections clearly separated, icons, code blocks, and good formatting for readability:
 
----
-
-````md
 # 🚀 Notification Service
 
 A simple and robust **Notification Service** built with Node.js, Express, MongoDB, and BullMQ to handle notification queuing and processing.
