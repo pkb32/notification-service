@@ -23,7 +23,7 @@ A simple and robust **Notification Service** built with Node.js, Express, MongoD
 | MongoDB + Mongoose  | Database & ODM         |
 | Redis + BullMQ      | Job Queue & Retry      |
 | ioredis             | Redis client           |
-|---------------------|------------------------|
+
 ---
 
 ## 🔧 Setup & Installation
@@ -137,7 +137,7 @@ Retrieve all notifications for a user, sorted by timestamp (newest first).
 
 ## ✅ Assumptions & Notes
 
-* Actual sending of emails/SMS/in-app messages is **not implemented**; focus is on queue and persistence.
+* Actual sending of emails/SMS/in-app messages is **not implemented**; focus is on queue and API.
 * Retry mechanism is handled using BullMQ’s built-in `attempts` and `backoff` features.
 * `userId` is expected to be unique per user (no duplicate userId checks currently).
 
