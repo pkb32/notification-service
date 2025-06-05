@@ -16,10 +16,18 @@ mongoose
   .then(() => console.log(`MongoDB connected on ${PORT}`))
   .catch((err) => console.error("MongoDB connection error:", err));
 
+const validTypes = ['email', 'sms', 'in-app'];
+
 // Send Notifications to a User
 app.post("/notifications", async (req, res) => {
+  const {userId,type,message} = req.body;
+  if (!userId || !type || !message) {
+    return res.status(400).json({ error: "Missing required fields" });
+  }
+  if (!validTypes.includes(type)) {
+    return res.status(400).json({ error: "Invalid notification type" });
+  }
   try {
-    const { userId, type, message } = req.body;
     await notificationQueue.add(
       "send",
       { userId, type, message },
@@ -27,7 +35,7 @@ app.post("/notifications", async (req, res) => {
         attempts: 3,
         backoff: {
           type: "exponential",
-          delay: 5000, // initial retry delay in ms
+          delay: 5000, 
         },
       }
     );

@@ -11,6 +11,19 @@ mongoose.connect(process.env.MONGODB_URI);
 const worker = new Worker('notifications', async job => {
   console.log('Received job:', job.id, job.data);  // log the received job
   const { userId, type, message } = job.data;
+  switch (type) {
+    case 'email':
+      console.log(`Sending EMAIL to ${userId}: ${message}`);
+      break;
+    case 'sms':
+      console.log(`Sending SMS to ${userId}: ${message}`);
+      break;
+    case 'in-app':
+      console.log(`Saving IN-APP notification for ${userId}`);
+      break;
+    default:
+      console.warn(`Unknown notification type: ${type}`);
+  }
   await new Notification({ userId, type, message }).save();
   console.log(`Saved notification for user ${userId}`);
 }, { connection });
