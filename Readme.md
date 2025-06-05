@@ -79,14 +79,49 @@ node workers/notificationWorker.js
 
 * `type`: one of `email`, `sms`, `in-app`
 * `type`: other than the above -> Notification validation will fail
-
+* `O/P`:
+```JSON
+  {
+      "status": "Notification enqueued"
+  }
+```
 ### GET `/users/:id/notifications`
 
 Get all notifications for a user (sorted by time)
+* `O/P`:
+```JSON
+{
+    "notifications": [
+        {
+            "_id": "...",
+            "userId": "...",
+            "type": "email/sms/in-app",
+            "message": "...",
+            "timestamp": "...",
+            "__v": 0
+        }
+    ]
+}
+```
 
 ### GET `/notifications/jobs`
 
 Get job status of queued/completed/failed jobs
+
+```json
+[
+    {
+        "id": "...",
+        "name": "send",
+        "data": {
+            "userId": "...",
+            "type": "email",
+            "message": "..."
+        },
+        "status": "completed/active/waiting/failed"
+    },
+    {},{}
+]
 
 ---
 
