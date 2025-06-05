@@ -71,13 +71,14 @@ node workers/notificationWorker.js
 
 ```json
 {
-  "userId": "u123",
+  "userId": "PKB",
   "type": "email",
-  "message": "Hello!"
+  "message": "Hello world!"
 }
 ```
 
 * `type`: one of `email`, `sms`, `in-app`
+* `type`: other than the above -> Notification validation will fail
 
 ### GET `/users/:id/notifications`
 
@@ -91,7 +92,7 @@ Get job status of queued/completed/failed jobs
 
 ## ✅ Assumptions
 
-* Actual delivery (email/sms) is not implemented — focus is on API + queue + persistence
+* Actual delivery (email/sms) is not implemented — focus is on API + queue 
 * Retry is simulated using BullMQ's `attempts` and `backoff`
-
+* userID will be unique, hence no need to check for user with same multiple userID
 ---
