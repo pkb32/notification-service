@@ -18,6 +18,11 @@ mongoose
 
 const validTypes = ['email', 'sms', 'in-app'];
 
+//homepage rout
+app.get('/', (req, res) => {
+  res.send('Notification Worker is up and running!');
+});
+
 // Send Notifications to a User
 app.post("/notifications", async (req, res) => {
   const {userId,type,message} = req.body;
