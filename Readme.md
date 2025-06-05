@@ -66,6 +66,9 @@ node workers/notificationWorker.js
 
 Send a new notification
 
+* Example: `https://xyz.com/notifications`
+
+
 **Request body:**
 
 ```json
@@ -92,6 +95,7 @@ Send a new notification
 ### GET `/users/:id/notifications`
 
 Retrieve all notifications for a user, sorted by timestamp (newest first).
+* Example: `https://xyz.com/users/PKB/notifications`
 
 **Response:**
 
@@ -115,6 +119,7 @@ Retrieve all notifications for a user, sorted by timestamp (newest first).
 ### GET `/notifications/jobs`
 
 (Optional) List all jobs in the queue with their status
+* Example: `https://xyz.com/users/PKB/notifications/jobs`
 
 **Response example:**
 
@@ -129,7 +134,7 @@ Retrieve all notifications for a user, sorted by timestamp (newest first).
       "message": "Hello world!"
     },
     "status": "completed"
-  }
+  },{},{}
 ]
 ```
 
